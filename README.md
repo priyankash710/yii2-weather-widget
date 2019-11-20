@@ -1,4 +1,4 @@
-Weather Widget
+# weather-widget.
 Widget displays weather information for current location if allowed.
 
 Installation
@@ -14,26 +14,10 @@ to the require section of your composer.json file.
 
 Usage
 Once the extension is installed, simply use it in your code by :
-
+API URL: http://api.openweathermap.org/
+Country JSON: http://bulk.openweathermap.org/sample/city.list.json.gz
 <div id="weather"></div>
 
-<?= Weather::widget([
-		'id' => 'weather',
-		'pluginOptions' => [
-			'celsius' => true,
-			'imgPath' => '/gipadmin/images/weather-widget/',
-			'key' => Yii::$app->params['FORECAST_APIKEY'],
-			'lat' => Yii::$app->params['FORECAST_DEFAULT_LAT'],
-			'lon' => Yii::$app->params['FORECAST_DEFAULT_LON'],
-		]])
-?>
-and add your parameters in params.php:
 
-return [
-	...
-	/* Forecast.io */
-	'FORECAST_APIKEY' => '*** YOUR KEY HERE ***',
-	'FORECAST_DEFAULT_LAT' => 50.8449933,
-	'FORECAST_DEFAULT_LON' =>  4.3499778,
-	...
-];
+<?php echo Wheather::widget() ?>
+
