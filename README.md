@@ -1,9 +1,39 @@
-<p align="center">
-    <a href="https://github.com/yiisoft" target="_blank">
-        <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
-    </a>
-    <h1 align="center">Yii2 weather widget</h1>
-    <br>
-</p>
-Reference URL: https://phppot.com/php/forecast-weather-using-openweathermap-with-php/
-API Link: https://openweathermap.org/api
+Weather Widget
+Widget displays weather information for current location if allowed.
+
+Installation
+The preferred way to install this extension is through composer.
+
+Either run
+
+php composer.phar require --prefer-dist devleaks/yii2-weather "*"
+or add
+
+"devleaks/yii2-weather": "*"
+to the require section of your composer.json file.
+
+Usage
+Once the extension is installed, simply use it in your code by :
+
+<div id="weather"></div>
+
+<?= Weather::widget([
+		'id' => 'weather',
+		'pluginOptions' => [
+			'celsius' => true,
+			'imgPath' => '/gipadmin/images/weather-widget/',
+			'key' => Yii::$app->params['FORECAST_APIKEY'],
+			'lat' => Yii::$app->params['FORECAST_DEFAULT_LAT'],
+			'lon' => Yii::$app->params['FORECAST_DEFAULT_LON'],
+		]])
+?>
+and add your parameters in params.php:
+
+return [
+	...
+	/* Forecast.io */
+	'FORECAST_APIKEY' => '*** YOUR KEY HERE ***',
+	'FORECAST_DEFAULT_LAT' => 50.8449933,
+	'FORECAST_DEFAULT_LON' =>  4.3499778,
+	...
+];
